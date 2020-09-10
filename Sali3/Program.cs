@@ -1,5 +1,6 @@
 ﻿using System;
 
+
 namespace Sali3
 {
     class Program
@@ -24,7 +25,15 @@ namespace Sali3
 
             Jasen jasen = new Jasen("Mika", "Vainio", "Yläneentie 146", "23100", "Mynämäki", "123", "1");
 
-            // Katsotaan olion ominaisuuksia
+            // Testataan Trainer -olion muodostimen toiminta, huom. nimiavaruus Henkilosto
+
+            Henkilosto.Trainer trainer = new Henkilosto.Trainer("Jakke", "Jäynä", "Kotikatu 2", "21200", "Raisio", "Juoksumatto", "044 705 7425", "jakke@huuhaa.com");
+
+            // Testataan Punnitus-olion toimintaa
+
+            Punnitus punnitus = new Punnitus("10.9.2020", "70,5", "1,71");
+
+            // Katsotaan olioiden ominaisuuksia
 
             Console.WriteLine("Testi oletusmuodostimelle");
             henkilo.naytaHenkilo();
@@ -32,6 +41,12 @@ namespace Sali3
             henkilo1.naytaHenkilo();
             Console.WriteLine("Testin jäsenen muodostimelle");
             jasen.naytaJasen();
+            Console.WriteLine("Testi personal trainerin muodostimelle");
+            trainer.naytaTrainer();
+            Console.WriteLine("Testi punnituksen muodostimelle");
+            punnitus.naytaPunnitus();
+            Console.WriteLine("Painoindeksi (BMI-metodi) on " + punnitus.BMI());
+            
 
            
 
