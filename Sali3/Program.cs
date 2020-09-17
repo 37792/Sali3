@@ -33,6 +33,9 @@ namespace Sali3
 
             Punnitus punnitus = new Punnitus("10.9.2020", "70,5", "1,71");
 
+            // Testataan Rasvaprosentti-olion toimintaa
+            Rasvaprosentti rasvaprosentti = new Rasvaprosentti();
+
             // Katsotaan olioiden ominaisuuksia
 
             Console.WriteLine("Testi oletusmuodostimelle");
@@ -46,9 +49,26 @@ namespace Sali3
             Console.WriteLine("Testi punnituksen muodostimelle");
             punnitus.naytaPunnitus();
             Console.WriteLine("Painoindeksi (BMI-metodi) on " + punnitus.BMI());
-            
+            Console.WriteLine("Oletustiedot rasvaprosentin laskentaan ovat:");
+            Console.WriteLine("Alkuperäinen sukupuoli on: " + rasvaprosentti.Sukupuoli);
+            Console.WriteLine("Alkuperäinen ikä on: " + rasvaprosentti.Ika);
 
-           
+            // Tehdään muutokset ominaisuuksiin            
+            rasvaprosentti.Ika = "19";
+            rasvaprosentti.Sukupuoli = "Mies";
+            Console.WriteLine("Ominaisuuksia on muutetu, uudet arvot ovat");
+            Console.WriteLine("Ikä on nyt " + rasvaprosentti.Ika);
+            Console.WriteLine("Sukupuoli on nyt " + rasvaprosentti.Sukupuoli);
+            
+            // Testataan rasvaprosentinlaskenta
+            Console.WriteLine("Rasvaprosentti on " + rasvaprosentti.laskeRasva(1.71f, 71.5f));
+
+            // Testataan naisen rasvaprosentin laskenta
+            Rasvaprosentti nainen = new Rasvaprosentti("Nainen", "35");
+            Console.WriteLine("Naisen rasvaprosentti on " + nainen.laskeRasva(1.6f, 59f));
+
+            // Testataan staattista rasvaprosenttimetodia
+            Console.WriteLine("Rasvaprosentti: " + Rasvaprosentti.laskeRasva2(71.5f, 1.71f, 19f, "Mies"));
 
         }
     }
