@@ -51,9 +51,10 @@ namespace Sali3
         // Jäsen-olioiden erityisominaisuudet, joita ei ole Henkilo-luokassa
         protected string jasenid;
         protected string sukupuoli;
+        protected string syntymaAika;
 
         // Muodostin kaikilla parametreillä
-        public Jasen(string etu, string suku, string katu, string pnro, string paikka, string id, string spuoli)
+        public Jasen(string etu, string suku, string katu, string pnro, string paikka, string id, string spuoli , string saika)
         {
             this.etunimi = etu;
             this.sukunimi = suku;
@@ -62,6 +63,7 @@ namespace Sali3
             this.postitoimipaikka = paikka;
             this.jasenid = id;
             this.sukupuoli = spuoli;
+            this.syntymaAika = saika;
         }
         // Metodeja testaukseen
         public void naytaJasen()
@@ -73,6 +75,7 @@ namespace Sali3
             Console.WriteLine("Postitoimipaikka on " + this.postitoimipaikka);
             Console.WriteLine("Jäsennumero on " + this.jasenid);
             Console.WriteLine("Sukupuoli on " + this.sukupuoli);
+            Console.WriteLine("Syntymäaika on " + this.syntymaAika);
         }
 
     }
