@@ -9,6 +9,7 @@ namespace Sali3
         
         // Määritellään kaikkien henkilöiden yhteiset ominaisuudet (kentät)
         // Jäsen-luokka perii nämä ominaisuudet
+
         protected string etunimi; 
         protected string sukunimi;
         protected string katuosoite;
@@ -49,11 +50,23 @@ namespace Sali3
     class Jasen : Henkilo
     {
         // Jäsen-olioiden erityisominaisuudet, joita ei ole Henkilo-luokassa
+
         protected string jasenid;
         protected string sukupuoli;
         protected string syntymaAika;
 
+        public string Syntymäaika
+        {
+            get { return syntymaAika; }
+        }
+
+        public string Sukupuoli
+        {
+            get { return sukupuoli; }
+        }
+
         // Muodostin kaikilla parametreillä
+
         public Jasen(string etu, string suku, string katu, string pnro, string paikka, string id, string spuoli , string saika)
         {
             this.etunimi = etu;
@@ -66,6 +79,7 @@ namespace Sali3
             this.syntymaAika = saika;
         }
         // Metodeja testaukseen
+
         public void naytaJasen()
         {
             Console.WriteLine("Etunimi on " + this.etunimi);

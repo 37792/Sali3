@@ -16,13 +16,11 @@ namespace Sali3
 
             // Testataan Jäsen-olion muodostimen toiminta
 
-            Jasen jasen = new Jasen("Mika", "Vainio", "Yläneentie 146", "23100", "Mynämäki", "123", "1", "20.4.1956");
+            Jasen jasen = new Jasen("Mika", "Vainio", "Yläneentie 146", "23100", "Mynämäki", "12345", "Mies", "26.6.1962");
 
             // Testataan Punnitus-olion toimintaa
 
-            Punnitus punnitus = new Punnitus("10.9.2020", "70,5", "1,71");
-
-            
+            Punnitus punnitus = new Punnitus("20.4.2020", "71,5", "1,71");
 
             // Katsotaan olioiden ominaisuuksia
 
@@ -32,7 +30,7 @@ namespace Sali3
             punnitus.naytaPunnitus();
 
             // Testi iän laskennan toimimisesta
-            int vuotta = Rasvaprosentti.Ika("20.4.1956");
+            int vuotta = Rasvaprosentti.Ika("26.6.1962");
             Console.WriteLine("Olet " + vuotta + " vuotta vanha");
 
             // Testi BMI:n laskemiseksi
@@ -45,7 +43,24 @@ namespace Sali3
 
             // Testataan iän laskenta jäsen oliosta
 
-            Rasvaprosentti.Ika(jasen)
+            Console.WriteLine ("Ikä oliolla jäsen on " + Rasvaprosentti.Ika(jasen.Syntymäaika));
+
+            // Integraatiotesti 1. rasvaprosentin laskenta - jäsen ja punnitus olioista
+
+            int jika = Rasvaprosentti.Ika(jasen.Syntymäaika);            
+            float jbmi = Rasvaprosentti.BMI(punnitus.Pituus, punnitus.Paino);
+            float jrprosentti = Rasvaprosentti.laskeRasva(jbmi, jika, jasen.Sukupuoli);
+
+            Console.WriteLine("Jäsenen ikä on " + jika + ", bmi on " + jbmi + " ja rasvaprosentti on " + jrprosentti);
+
+            // Jako nollalla testi
+
+            string nollapituus = "0";
+            string paino = "71,5";
+            float bmikaatuu = Rasvaprosentti.BMI(nollapituus, paino);
+            Console.WriteLine("BMI on " + bmikaatuu);
+
+
          
                        
         }

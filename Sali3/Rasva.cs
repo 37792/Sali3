@@ -8,6 +8,7 @@ namespace Sali3
     class Rasvaprosentti
     {
         // Staattinen metodi iän laskemiseksi
+
         static public int Ika(string syntymapaiva)
         {
             CultureInfo cultureInfo = new CultureInfo("fi-FI");
@@ -20,18 +21,34 @@ namespace Sali3
         }
         
         // Staattinen metodi painoindeksin laskemiseksi
+
         static public float BMI(string pituus, string paino)
         {
             // Muutetaan olion merkkijono-ominaisuudet liukuluvuiksi
+            
             float painoKg = float.Parse(paino);
             float pituusM = float.Parse(pituus);
 
             // Lasketaan painoindeksi ja palautetaan se
-            float bmi = painoKg / (pituusM * pituusM);
-            return bmi;
+
+            try
+            {
+                float bmi = painoKg / (pituusM * pituusM);
+                return bmi;
+            }
+            catch (Exception)
+            {
+                Console.Beep();
+                float bmi = 0;
+                return bmi;
+                
+                throw;
+            }
+          
         }
 
         // Staattinen metodi, jolla rasvaprosentti voidaan laskea ilman oliota
+
         static public float laskeRasva(float bmi , int ika, string sukupuoli)
         {
             float sukupuolikerroin = 0;

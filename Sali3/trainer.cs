@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 
 // Ulkoinen nimiavaruus Henkilosto
+
 namespace Henkilosto
 {
     // Trainer-luokka perii Henkilo-luokan ominaisuudet
